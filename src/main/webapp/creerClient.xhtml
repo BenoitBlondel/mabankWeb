@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+<title>Formulaire</title>
+<h:outputStylesheet library= "css" name= "style.css" target= "body"/>
+<h:outputScript library= "js" name= "script.js" target= "body"/>
+</h:head>
+<h:body>
+	<f:view>
+		<h:form>
+			<h:panelGrid id="panel" border="2" cellpadding="10" cellspacing="1"
+				columns="2">
+
+				<f:facet name="header">
+					<h:outputText value="Création du client" />
+				</f:facet>
+
+				<h:outputLabel value="Nom : ">
+					<h:inputText value="#{clientbean.monClient.nom}" required="true"
+						requiredMessage="Vous devez entrer un nom pour le Client."
+						id="nom" />
+				</h:outputLabel>
+				<h:outputLabel value="Prénom : ">
+					<h:inputText value="#{clientbean.monClient.prenom}" required="true"
+						requiredMessage="Vous devez entrer un prénom pour le Client."
+						id="prenom" />
+				</h:outputLabel>
+
+				<h:message for="nom" />
+				<h:message for="prenom" />
+
+				<h:outputLabel value="Situation Professionnelle : ">
+					<h:selectOneRadio
+						value="#{clientbean.monClient.situationProfessionnel}"
+						required="true" requiredMessage="Vous devez sélectionner l'une des deux situations professionnelles proposées." id="situationProfessionnel">
+						<f:selectItem itemLabel="Particulier" itemValue="particulier" />
+						<f:selectItem itemLabel="Entreprise" itemValue="entreprise" />
+					</h:selectOneRadio>
+				</h:outputLabel>
+
+				<h:outputLabel value="Numéro de téléphone : ">
+					<h:inputText value="#{clientbean.monClient.telephone}"
+						required="true" requiredMessage="Vous devez entrer un numéro de téléphone pour le Client." id="telephone" />
+				</h:outputLabel>
+
+				<h:message for="situationProfessionnel" />
+				<h:message for="telephone" />
+
+				<h:outputLabel value="Adresse : " />
+				<h:inputText value="#{clientbean.monClient.adresse}" required="true" requiredMessage="Vous devez entrer une adresse."
+					id="adresse" />
+				<h:message for="adresse" /><h:message/>
+
+				<h:outputLabel value="Code Postal : " ><h:inputText value="#{clientbean.monClient.codePostal}"
+					required="true" requiredMessage="Vous devez entrer un code postal." id="codePostal" /></h:outputLabel>
+				<h:outputLabel value="Ville : " ><h:inputText value="#{clientbean.monClient.ville}" required="true" requiredMessage="Vous devez entrer une ville."
+					id="ville" /></h:outputLabel>
+				
+				<h:message for="codePostal" />
+				<h:message for="ville" />
+
+			</h:panelGrid>
+
+			<h:commandButton value="Enregistrer"
+				action="#{clientbean.creationClient}" />
+
+		</h:form>
+	</f:view>
+</h:body>
+
+</html>

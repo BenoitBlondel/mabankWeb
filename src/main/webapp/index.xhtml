@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Objis Formation</title>
+</head>
+
+<body>
+	<!-- DECLARATION DU TEMPLATE DONT LA PAGE EST CLIENTE -->
+	<ui:composition template="/template/layout.xhtml">
+
+		<!-- Redefinition de la zone 'content' du layout  -->
+		<ui:define name="content">
+			<f:view>
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<b:jumbotron>
+					<h2>Veuillez-vous identifier s'il vous plaît :</h2>
+					<h:form>
+						<h:panelGrid id="loginPanel" border="2" cellpadding="10" cellspacing="1" columns="2">
+							<h:outputLabel value="Login : ">
+								<h:inputText value="#{conseillerbean.conseiller.login}" required="true"
+									requiredMessage="Vous devez entrer un nom d'utilisateur pour vous connecter." id="Login" />
+							</h:outputLabel>
+							<h:message for="Login" />
+
+							<h:outputLabel value="Password : ">
+								<h:inputText value="#{conseillerbean.conseiller.password}" required="true"
+									requiredMessage="Vous devez entrer un mot de passe pour vous connecter." id="Password" />
+							</h:outputLabel>
+							<h:message for="Password" />
+
+							<h:commandButton value="Connection" action="#{conseillerbean.verificationLogin}" />
+
+							<h:link value="Entrer" outcome="welcome" />
+						</h:panelGrid>
+					</h:form>
+				</b:jumbotron>
+			</f:view>
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>
